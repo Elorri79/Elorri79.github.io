@@ -77,7 +77,10 @@ DefaultLimitNOFILE=65000
 DefaultLimitNPROC=65000
 DefaultTasksMax=65000
 ```
+
+---
 ![terminal]({{ site.baseurl }}/images/Pasted image 20241208144407.png)
+---
 
 Será necesario reiniciar el servidor para que los cambios surtan efecto.
 
