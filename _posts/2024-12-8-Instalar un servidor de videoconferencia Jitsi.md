@@ -78,10 +78,7 @@ DefaultLimitNPROC=65000
 DefaultTasksMax=65000
 ```
 
-![({{ site.baseurl }}/images/20241208144407.png)]
-
-
-![[Pasted image 20241208144407.png]]
+![[/images/Pasted image 20241208144407.png]]
 
 Será necesario reiniciar el servidor para que los cambios surtan efecto.
 
