@@ -79,7 +79,11 @@ DefaultTasksMax=65000
 ```
 
 
-<div style="border: 2px solid black;"> ![terminal]({{ site.baseurl }}/images/Pasted image 20241208144407.png) </div>
+<div style="border: 2px solid black;"> 
+    
+    ![terminal]({{ site.baseurl }}/images/Pasted image 20241208144407.png) 
+    
+</div>
 
 
 
