@@ -130,17 +130,17 @@ Verificaremos que todos los servicios requeridos están funcionando correctament
 ```
 sudo systemctl status coturn && sudo systemctl status jicofo && sudo systemctl status jitsi-videobridge2 && sudo systemctl status prosody && sudo systemctl status nginx
 ```
-
+---
 ![terminal]({{ site.baseurl }}/images/Pasted image 20241208150205.png)
-
+---
 ![terminal]({{ site.baseurl }}/images/Pasted image 20241208150230.png)
-
+---
 ![terminal]({{ site.baseurl }}/images/Pasted image 20241208150301.png)
-
+---
 ![terminal]({{ site.baseurl }}/images/Pasted image 20241208150328.png)
-
+---
 ![terminal]({{ site.baseurl }}/images/Pasted image 20241208150350.png)
-
+---
 
 Jitsi Meet está instalado, y para acceder a él, basta con configurar el sistema para que resuelva correctamente el nombre de anfitrión; por ejemplo: 
 
@@ -148,8 +148,8 @@ Jitsi Meet está instalado, y para acceder a él, basta con configurar el sistem
 $ sudo hostnamectl set-hostname meet.midominio.es
 $ sudo echo "127.0.0.1 meet.midominio.es" >> /etc/hosts
 ```
-
+---
 ![terminal]({{ site.baseurl }}/images/Pasted image 20241208151107.png)
-
+---
 ![terminal]({{ site.baseurl }}/images/Pasted image 20241208151202.png)
-
+---
