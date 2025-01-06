@@ -1,8 +1,9 @@
+---
+layout: post
+title: Cambiar puerto del servidor SSH en Linux (Debian)
+---
 
-
-```markdown
-# Cambiar puerto del servidor SSH en Linux (Debian)
-
+```
 En ocasiones, por razones de seguridad o para cumplir con requisitos específicos, es necesario cambiar el puerto por defecto en el que el servidor SSH escucha. El puerto predeterminado para SSH es el 22, pero cambiarlo puede ayudar a reducir la exposición a ataques automatizados. A continuación, te mostramos cómo hacerlo en un sistema Linux con Debian.
 
 ### Paso a paso para cambiar el puerto de SSH:
