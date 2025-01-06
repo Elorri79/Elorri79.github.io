@@ -4,12 +4,14 @@ title: About
 permalink: /about/
 ---
 
-Técnicamente, un novato.
+Técnicamente, un técnico novato.
 
 ### More Information
 
-Bienvenido al lugar donde guardo mis notas.
+Abandona toda esperanza. Aunque quizá encuentres lo que buscas.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+En alguna cafetería de Madriz
+
+# [email@domain.com](mailto:email@domain.com)
