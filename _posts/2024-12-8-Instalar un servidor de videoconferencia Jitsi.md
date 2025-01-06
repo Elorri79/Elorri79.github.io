@@ -5,6 +5,10 @@ title: Instalar un servidor de videoconferencia Jitsi
 
 Instalaré Jitsi Meet en un servidor basado en Debian 12.
 
+Esto fue una práctica que hice para el módulo de FP y me pareció muy chulo. Por ser un trabajo de clase, igual te parece que explico demasiados comandos; pero ojo, amigo, NUNCA ES DEMASIADO.
+
+Arrancando:
+
 En un servidor nuevo, tendríamos que instalar Java OpenJDK, un servidor web (en esta ocasión usaré nginx), y algunos otros paquetes necesarios para que Jitsi funcione correctamente:
 
 ```
