@@ -3,10 +3,10 @@
 #
 
 # Name of your site (displayed in the header)
-name: Blog de Elorri el novato
+name: Blog perruno de Elorri el novato
 
 # Short bio or description (displayed in the header)
-description: Este blog representa la documentación que, como novato, voy elaborando para no perderme.
+description: Apunto mis cosas en Obsidian y aquí cuelgo lo que pueda ayudarte, hermano novato.
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://raw.githubusercontent.com/Elorri79/Elorri79.github.io/master/images/yo.png
@@ -17,21 +17,10 @@ avatar: https://raw.githubusercontent.com/Elorri79/Elorri79.github.io/master/ima
 
 # Includes an icon in the footer for each username you enter
 footer-links:
-  dribbble:
-  email:
-  facebook:
-  flickr:
+  email: 
   github: Elorri79
-  instagram:
-  linkedin:
-  pinterest:
-  rss: # just type anything here for a working RSS icon
-  twitter: 
-  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
-  youtube: # channel/<your_long_string> or user/<user-name>
-  googleplus: # anything in your profile username that comes after plus.google.com/
-
-
+  twitter: @pepote_79
+  
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
 disqus:
