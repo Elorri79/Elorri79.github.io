@@ -45,11 +45,8 @@ Este comando crea el directorio `ssh.socket.d` dentro de `/etc/systemd/system/` 
 
 ### Resumen:
 
-Con estos pasos, has configurado el servicio SSH para que escuche en el puerto 1234, en lugar del puerto 22. Este cambio se realiza a través de la configuración de `systemd` en el archivo `listen.conf`, recargando los servicios y reiniciando el servicio SSH. Asegúrate de abrir el nuevo puerto en tu firewall y de probar la conexión SSH para verificar que todo funcione correctamente.
+Con estos pasos, has configurado el servicio SSH para que escuche en el puerto 1234, en lugar del puerto 22. Este cambio se realiza a través de la configuración de `systemd` en el archivo `listen.conf`, recargando los servicios y reiniciando el servicio SSH. 
+
+Asegúrate de abrir el nuevo puerto en tu firewall y de probar la conexión SSH para verificar que todo funcione correctamente.
 
 ¡Listo! Ahora tu servidor SSH está protegido con un puerto no estándar.
-
-```
-
-Este formato es adecuado para usarlo en un repositorio de GitHub o en cualquier plataforma que soporte Markdown.
-```
