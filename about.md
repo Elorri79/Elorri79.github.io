@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Técnicamente, un técnico novato.
+Técnicamente, un novato.
 
 ### More Information
 
