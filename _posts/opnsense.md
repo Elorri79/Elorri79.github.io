@@ -1,0 +1,178 @@
+---
+title: Publicar un servicio con dominio propio usando OPNsense
+description: Vamos a publicar el servicio Wiki.js con dominio propio usando OPNsense. Vale para cualquier servicio que tengamos.
+published: true
+date: 2025-12-28T13:24:19.502Z
+tags: wiki.js, proxmox, opnsense, dns, proxy
+editor: markdown
+dateCreated: 2025-12-28T13:24:19.502Z
+---
+
+# Publicar Wiki.js con dominio propio usando OPNsense
+
+Este tutorial explica cómo exponer **Wiki.js** usando un **dominio propio**, apoyándonos en **OPNsense** como firewall, **HAProxy** como proxy inverso y **Unbound DNS** para la resolución interna de nombres.
+
+El objetivo es acceder a nuestra wiki de forma cómoda mediante una URL del tipo:
+
+```
+https://wiki.midominio.org
+```
+
+> ⚠️ **Nota de privacidad**
+> Los dominios, IPs y nombres usados aquí son ejemplos. Sustitúyelos por los de tu propio entorno.
+
+---
+
+## 📌 Punto de partida
+
+### Infraestructura
+
+* Dominio gestionado en **Cloudflare** (`midominio.org`)
+* **Proxmox VE** como hipervisor
+* Una **VM con OPNsense**
+* Un **contenedor con Wiki.js** desplegado rápidamente usando los scripts de la comunidad:
+
+  * [https://community-scripts.github.io/ProxmoxVE/](https://community-scripts.github.io/ProxmoxVE/)
+
+### Configuración previa en OPNsense
+
+* Subred interna dedicada:
+
+  * `192.168.10.0/24`
+  * OPNsense: `192.168.10.1`
+* **VPN WireGuard** para acceder a la red desde el exterior
+* Certificado **Let's Encrypt** generado con el módulo **ACME Client**, validado mediante Cloudflare
+
+> 💡 Si te interesa un tutorial específico sobre **WireGuard**, **ACME Client**, **HAProxy** o **Unbound**, coméntamelo.
+
+---
+
+## 🎯 Objetivo
+
+Configurar:
+
+1. **HAProxy** para enrutar el tráfico HTTPS hacia Wiki.js
+2. **Unbound DNS** para resolver el dominio internamente
+
+---
+
+## 🔀 1. Configuración de HAProxy
+
+### 1.1 Crear el *Real Server*
+
+Ruta:
+
+```
+HAProxy → Settings → Real Servers
+```
+
+Configuración:
+
+* ✅ **Enable**
+* **Name / Prefix**: `Wiki_RealServer`
+* **FQDN or IP**: `192.168.10.88` (IP del contenedor Wiki.js)
+* **Port**: `3000` (puerto por defecto de Wiki.js)
+
+Guardar y aplicar cambios.
+
+---
+
+### 1.2 Crear la condición (*Condition*)
+
+Ruta:
+
+```
+HAProxy → Settings → Rules & Checks → Conditions
+```
+
+Configuración:
+
+* **Name**: `Host_wiki`
+* **Condition type**: `Host matches`
+* **Host string**: `wiki.midominio.org`
+
+Guardar y aplicar cambios.
+
+---
+
+### 1.3 Crear el *Backend Pool*
+
+Ruta:
+
+```
+HAProxy → Settings → Virtual Services → Backend Pools
+```
+
+Configuración:
+
+* **Name**: `Wiki_Backend`
+* **Servers**: `Wiki_RealServer`
+
+Guardar y aplicar cambios.
+
+---
+
+### 1.4 Crear la regla de enrutado
+
+Ruta:
+
+```
+HAProxy → Settings → Rules & Checks → Rules
+```
+
+Configuración:
+
+* **Name**: `Rule_wiki`
+* **Conditions**: `Host_wiki`
+* **Use backend pool**: `Wiki_Backend`
+
+Guardar y aplicar cambios.
+
+---
+
+## 🌐 2. Configuración de Unbound DNS
+
+Para que el dominio se resuelva **dentro de la red** (y por VPN), creamos un override.
+
+Ruta:
+
+```
+Unbound DNS → Overrides
+```
+
+Configuración:
+
+* ✅ **Enable**
+* **Host**: `wiki`
+* **Domain**: `midominio.org`
+* **Type**: `IPv4`
+* **IP address**: `192.168.10.1` (IP de OPNsense / HAProxy)
+
+Guardar y aplicar cambios.
+
+---
+
+## 🖥️ 3. Archivo `/etc/hosts` (opcional pero útil)
+
+En clientes donde no quieras depender del DNS (o para pruebas rápidas), puedes añadir:
+
+```text
+192.168.10.1 wiki.midominio.org
+```
+
+---
+
+## ✅ Resultado final
+
+🎉 Ya puedes acceder a tu Wiki.js desde el navegador usando:
+
+```
+https://wiki.midominio.org
+```
+
+* Accesible desde la LAN
+* Accesible desde fuera mediante VPN
+* Con HTTPS válido gracias a Let's Encrypt
+
+---
+*Formateado a markdown con ChatGPT*
