@@ -14,4 +14,4 @@ Abandona toda esperanza. Aunque quizá encuentres lo que buscas.
 
 En alguna cafetería de Madriz
 
-# [email@domain.com](mailto:elorri54@protonmail.com)
+# [elorri54@protonmail.com](mailto:elorri54@protonmail.com)
